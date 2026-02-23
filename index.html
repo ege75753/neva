@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only You</title>
+    <!-- Modern Font: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Stars Background (Global) -->
+    <div id="stars-container"></div>
+    <div id="stars-container-2"></div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div id="app-wrapper">
+
+        <!-- 5. "ONLY YOU" LOGIN PAGE -->
+        <section id="view-login" class="view active">
+            <div class="login-container">
+                <h1 class="login-title">For your eyes only.</h1>
+                <p class="login-hint">hint: the day we got together (DDMMYY)</p>
+                <!-- Using a simple passcode like 1234 for now -->
+                <input type="password" id="passcode-input" placeholder="enter passcode" autocomplete="off">
+                <p id="login-error" class="hidden">incorrect.</p>
+                <button id="login-btn">Unlock</button>
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT WRAPPER (Hidden initially) -->
+        <div id="main-content" class="hidden">
+
+            <!-- Floating Navigation Menu -->
+            <nav id="floating-nav">
+                <button class="nav-btn active" data-target="view-drift">Box</button>
+                <button class="nav-btn" data-target="view-timeline">Timeline</button>
+                <button class="nav-btn" data-target="view-future">Future</button>
+                <button class="nav-btn" data-target="view-wall">Wall</button>
+            </nav>
+
+            <div class="music-toggle-container">
+                <button id="music-toggle" title="Toggle audio">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                </button>
+                <div id="audio-visualizer" class="hidden">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+            <!-- Audio element -->
+            <audio id="bg-music" src="assets/My_Love_Mine_All%20Mine_spotdown.org.mp3" loop></audio>
+
+            <!-- 1. "IN CASE WE DRIFT" -->
+            <section id="view-drift" class="view">
+                <div class="drift-container">
+                    <h1 class="drift-intro blur-in">i made this all for you</h1>
+                    <div class="letters-grid fade-in-delayed">
+                        <div class="letter" data-id="argued">
+                            <span class="letter-label">if we argued</span>
+                        </div>
+                        <div class="letter" data-id="offline">
+                            <span class="letter-label">if i'm offline</span>
+                        </div>
+                        <div class="letter" data-id="dontcare">
+                            <span class="letter-label">if you feel like i don't care</span>
+                        </div>
+                        <div class="letter" data-id="scared">
+                            <span class="letter-label">if you're scared i'll leave</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Letter Modal -->
+                <div id="letter-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <button class="close-modal">&times;</button>
+                        <div id="modal-text" class="modal-text"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. INTERACTIVE MEMORY TIMELINE -->
+            <section id="view-timeline" class="view">
+                <div class="timeline-container">
+                    <div class="timeline-track">
+                        <!-- Timeline Items -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>The day we met</h3>
+                                <p>I remember everything about this day. Like how your mic was shit. But still, i was so
+                                    excited after a long time.</p>
+                                <div class="memory-photo">
+                                    <div class="photo-placeholder"
+                                        style="background-image: url('assets/cat.jpg'); background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>First inside joke</h3>
+                                <p>MIIINNNIIIIKKKKKKK BROOOOOOOOOOOOO 😭😭😭😭😭</p>
+                                <div class="memory-photo">
+                                    <div class="photo-placeholder"
+                                        style="background-image: url('assets/inside_joke.png'); background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>First time being on call just with you</h3>
+                                <p>I remember how nervous i was, but i was so happy to be with you.</p>
+                                <div class="memory-photo">
+                                    <div class="photo-placeholder"
+                                        style="background-image: url('assets/First_time_on_call.PNG'); background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>First fight</h3>
+                                <p>And we got through it, because we always will. No matter what. </p>
+                                <div class="memory-photo">
+                                    <div class="photo-placeholder"
+                                        style="background-image: url('assets/our_first_fight.png'); background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Random funny moment</h3>
+                                <p>Just one of the million reasons I love being around you. My favorite is how u sat so
+                                    far away from me.</p>
+                                <div class="memory-photo">
+                                    <div class="photo-placeholder"
+                                        style="background-image: url('assets/US.PNG'); background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. "FUTURE" WEBSITE -->
+            <section id="view-future" class="view">
+                <div class="future-container">
+                    <h1 class="future-title">our future</h1>
+                    <p class="future-paragraph">
+                        I love you so much i cannot express it with a stupid site. I just want to be with you, i know
+                        nothing lasts forever. But god damn i want this to last soooo much i cannot tell you. i don’t
+                        know what the future holds, but i’m choosing you today.. We promised we werent gonna break up
+                        remember?
+                    </p>
+                </div>
+            </section>
+
+            <!-- 4. DIGITAL POLAROID WALL -->
+            <section id="view-wall" class="view">
+                <div class="wall-container">
+                    <h1 class="wall-title">flip these when you forget.</h1>
+                    <div class="polaroid-grid">
+                        <!-- Polaroid 1 -->
+                        <div class="polaroid">
+                            <div class="polaroid-inner">
+                                <div class="polaroid-front">
+                                    <div class="polaroid-img-placeholder"
+                                        style="background-image: url('assets/caatttsssss.jpg'); background-size: cover; background-position: center;">
+                                    </div>
+                                    <p class="polaroid-caption">Tap me</p>
+                                </div>
+                                <div class="polaroid-back">
+                                    <p>I love how you roll your eyes at me.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Polaroid 2 -->
+                        <div class="polaroid">
+                            <div class="polaroid-inner">
+                                <div class="polaroid-front">
+                                    <div class="polaroid-img-placeholder"
+                                        style="background-image: url('assets/cattss.jpg'); background-size: cover; background-position: center;">
+                                    </div>
+                                    <p class="polaroid-caption">Tap me</p>
+                                </div>
+                                <div class="polaroid-back">
+                                    <p>Im so proud of how you talented you are for many things.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Polaroid 3 -->
+                        <div class="polaroid">
+                            <div class="polaroid-inner">
+                                <div class="polaroid-front">
+                                    <div class="polaroid-img-placeholder"
+                                        style="background-image: url('assets/sorry.jpg'); background-size: cover; background-position: center;">
+                                    </div>
+                                    <p class="polaroid-caption">Tap me</p>
+                                </div>
+                                <div class="polaroid-back">
+                                    <p>Your little chuckle is literally my favorite sound on earth. Where... did this
+                                        picture get here?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Polaroid 4 -->
+                        <div class="polaroid">
+                            <div class="polaroid-inner">
+                                <div class="polaroid-front">
+                                    <div class="polaroid-img-placeholder"
+                                        style="background-image: url('assets/US.PNG'); background-size: cover; background-position: center;">
+                                    </div>
+                                    <p class="polaroid-caption">Tap me</p>
+                                </div>
+                                <div class="polaroid-back">
+                                    <p>You make me want to be better, just by being you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Intro overlay after login -->
+    <div id="welcome-overlay" class="hidden">
+        <h1 id="welcome-name">NEVA</h1>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
